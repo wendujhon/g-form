@@ -11,8 +11,12 @@ export default async function AdminPage() {
   try {
     if (!token) throw new Error("no token");
     await verifyAdminToken(token);
-  } catch {
-    redirect("/admin/login");
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      redirect("/admin/login");
+    } else {
+      redirect("/admin/login");
+    }
   }
 
   const db = await getDb();
@@ -53,7 +57,7 @@ export default async function AdminPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {items.map((doc: any) => {
+                    {items.map((doc) => {
                       const a = doc.data?.answers ?? doc.answers ?? {};
                       const when = doc.createdAt
                         ? new Date(doc.createdAt).toLocaleString()

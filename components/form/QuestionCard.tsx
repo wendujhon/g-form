@@ -9,7 +9,7 @@ import { Select } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import type { Question, QuestionOption, QuestionType } from "@/lib/formTypes";
+import type { Question, QuestionType } from "@/lib/formTypes";
 import { cn } from "@/lib/utils";
 
 export interface QuestionCardProps {
@@ -34,7 +34,6 @@ const TYPE_OPTIONS: { value: QuestionType; label: string }[] = [
 
 export function QuestionCard({
   question,
-  index,
   onChange,
   onDuplicate,
   onDelete,

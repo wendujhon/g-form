@@ -21,7 +21,7 @@ export async function GET() {
       .limit(100)
       .toArray();
     return NextResponse.json({ ok: true, items });
-  } catch (err) {
+  } catch {
     return NextResponse.json(
       { ok: false, error: "Unauthorized" },
       { status: 401 }

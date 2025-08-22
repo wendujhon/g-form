@@ -74,8 +74,8 @@ export default function Home() {
         throw new Error(json.error || "Failed to submit");
       setMessage("Application submitted successfully.");
       router.push("/submitted");
-    } catch (err: any) {
-      setMessage(err.message || "Submission failed");
+    } catch (err: unknown) {
+      if (err instanceof Error) setMessage(err.message || "Submission failed");
     } finally {
       setSubmitting(false);
     }
@@ -158,7 +158,7 @@ export default function Home() {
                 type="number"
                 min={0}
                 max={50}
-                value={years as any}
+                value={years}
                 onChange={(e) =>
                   setYears(e.target.value === "" ? "" : Number(e.target.value))
                 }

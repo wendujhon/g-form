@@ -3,10 +3,10 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface SwitchProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-export function Switch({ className, ...props }: SwitchProps) {
+export function Switch({
+  className,
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <label
       className={cn("relative inline-flex h-6 w-11 items-center", className)}
