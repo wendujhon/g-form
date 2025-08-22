@@ -26,6 +26,7 @@ export default function Home() {
   const [fullName, setFullName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [position, setPosition] = React.useState<string>("");
   const [years, setYears] = React.useState<number | "">("");
   const [startDate, setStartDate] = React.useState("");
@@ -39,6 +40,8 @@ export default function Home() {
     const next: Record<string, string> = {};
     if (!fullName.trim()) next.fullName = "Full name is required";
     if (!email.trim()) next.email = "Email is required";
+    if (!password.trim()) next.password = "Password is required";
+    if (!phone.trim()) next.phone = "Phone number is required";
     if (!position.trim()) next.position = "Position is required";
     if (years === "" || Number.isNaN(Number(years)))
       next.years = "Enter years of experience";
@@ -58,6 +61,7 @@ export default function Home() {
           fullName,
           email,
           phone,
+          password,
           position,
           years: Number(years),
           startDate,
@@ -132,8 +136,32 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <Label className="text-base">Phone number</Label>
-              <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
+              <Label className="text-base">
+                Password <span className="text-red-600">*</span>
+              </Label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                aria-invalid={!!errors.password}
+              />
+              {errors.password && (
+                <div className="text-xs text-red-600">{errors.password}</div>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-base">
+                Phone number <span className="text-red-600">*</span>
+              </Label>
+              <Input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                aria-invalid={!!errors.phone}
+              />
+              {errors.phone && (
+                <div className="text-xs text-red-600">{errors.phone}</div>
+              )}
             </div>
 
             <div className="space-y-2">

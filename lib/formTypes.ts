@@ -6,7 +6,8 @@ export type QuestionType =
   | "dropdown"
   | "linear_scale"
   | "date"
-  | "time";
+  | "time"
+  | "password";
 
 export interface QuestionOption {
   id: string;
@@ -36,7 +37,8 @@ export function createDefaultQuestion(
     type === "short_answer" ||
     type === "paragraph" ||
     type === "date" ||
-    type === "time"
+    type === "time" ||
+    type === "password"
   ) {
     return { id, title: "Untitled question", required: false, type };
   }

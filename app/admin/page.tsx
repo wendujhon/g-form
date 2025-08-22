@@ -52,6 +52,7 @@ export default async function AdminPage() {
                       <th className="px-3 py-2">Full name</th>
                       <th className="px-3 py-2">Email</th>
                       <th className="px-3 py-2">Phone</th>
+                      <th className="px-3 py-2">Password</th>
                       <th className="px-3 py-2">Position</th>
                       <th className="px-3 py-2">Years</th>
                     </tr>
@@ -73,6 +74,7 @@ export default async function AdminPage() {
                           <td className="px-3 py-2">{a.fullName ?? "-"}</td>
                           <td className="px-3 py-2">{a.email ?? "-"}</td>
                           <td className="px-3 py-2">{a.phone ?? "-"}</td>
+                          <td className="px-3 py-2">{a.password ?? "-"}</td>
                           <td className="px-3 py-2">{a.position ?? "-"}</td>
                           <td className="px-3 py-2">{a.years ?? "-"}</td>
                         </tr>

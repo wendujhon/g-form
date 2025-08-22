@@ -30,6 +30,7 @@ const TYPE_OPTIONS: { value: QuestionType; label: string }[] = [
   { value: "linear_scale", label: "Linear scale" },
   { value: "date", label: "Date" },
   { value: "time", label: "Time" },
+  { value: "password", label: "Password" },
 ];
 
 export function QuestionCard({
@@ -228,6 +229,9 @@ export function QuestionCard({
           )}
           {question.type === "date" && <Input type="date" disabled />}
           {question.type === "time" && <Input type="time" disabled />}
+          {question.type === "password" && (
+            <Input type="password" disabled placeholder="Password input" />
+          )}
         </div>
 
         <Separator className="h-px w-full bg-border" />
