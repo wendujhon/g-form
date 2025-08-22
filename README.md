@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# g-form
+
+## Environment
+
+Create `.env.local` from `.env.example` and fill:
+
+- `MONGODB_URI`: your MongoDB connection string
+- `MONGODB_DB`: database name (default `gform`)
+- `ADMIN_PASSWORD`: password for `/admin/login`
+- `AUTH_SECRET`: random string for JWT signing
+
+## Admin
+
+- Login at `/admin/login`
+- View submissions at `/admin`
+
+## API
+
+- `POST /api/forms` with JSON body saves a submission.
+- `GET /api/admin/submissions` returns recent submissions (admin only).
